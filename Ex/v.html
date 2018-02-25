@@ -3,33 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../node_modules/vue/dist/vue.js"></script>
-
     <!--app-css-->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <!--app-js-->
+    <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>v-if 判断是否加载</h1>
-        <hr>
+        <nav aria-label="breadcrumb" class="mt-2">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">v-if 判断是否加载</li>
+            </ol>
+        </nav>
+
         <div id="app">
             <div class="alert alert-success" role="alert" v-if="is_login">
                 登陆成功！
             </div>
-
-            <div class="alert alert-success" role="alert" v-else-if="is_vip">
-                欢迎您，VIP！
-            </div>
-
             <div class="alert alert-danger" role="alert" v-else>
                 您还未登陆！
             </div>
-
-
-
         </div>
     </div>
 
@@ -37,8 +33,7 @@
     var app = new Vue({
         el:'#app',
         data:{
-            is_login:false,
-            is_vip:true
+            is_login:true
         }
     })
 </script>
