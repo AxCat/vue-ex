@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">v-text_v-html.html</li>
+        </ol>
+    </nav>
+
+    <div id="app">
+        <div >{{message}}</div>  =  <div v-text="message"></div>
+
+        <hr>
+
+        <div >{{t_html}}</div>  !=  <div v-html="t_html"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'jang',
+            t_html:'<code>code</code>'
+        }
+    })
+
+</script>
+</body>
+</html>

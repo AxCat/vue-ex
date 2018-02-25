@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">v-for</li>
+        </ol>
+    </nav>
+
+
+    <div id="app">
+        <ul>
+            <li v-for="item in orderedres">
+                {{item.name}} - {{item.age}}
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            res:[
+                {name:'aaa',age:12,},
+                {name:'bbb',age:38,},
+                {name:'ccc',age:5,},
+                {name:'ddd',age:24,},
+            ],
+        },
+        computed: {
+            orderedres: function () {
+                return this.res.sort(sortBy('age',false))
+            }
+        }
+    })
+
+    function sortBy(attr,rev){
+        //第二个参数没有传递 默认升序排列
+        if(rev ==  undefined){
+            rev = 1;
+        }else{
+            rev = (rev) ? 1 : -1;
+        }
+        return function(a,b){
+            a = a[attr];
+            b = b[attr];
+            if(a < b){
+                return rev * -1;
+            }
+            if(a > b){
+                return rev * 1;
+            }
+            return 0;
+        }
+    }
+
+</script>
+</body>
+</html>
