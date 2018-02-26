@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <style>
+        .doc{
+            font-size: 20px;
+            color:palevioletred;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">v-bind</li>
+        </ol>
+    </nav>
+
+    <div id="app">
+        <div :class="{
+        doc:isdoc,
+        'text-success':issuccess}">123
+        </div>
+        <div class="text-success">321</div>
+        <div :class="classname">321</div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            classname:'doc',
+            isdoc:true,
+            'issuccess':true
+
+        }
+    })
+
+</script>
+</body>
+</html>
