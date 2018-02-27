@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Vue.extend</li>
+        </ol>
+    </nav>
+
+
+    <jang></jang>
+
+</div>
+
+<script type="text/javascript">
+        var appex = Vue.extend({
+            template:'<a :href="jang_url">{{jang}}</a>',
+            data:function () {
+                return{
+                    jang_url:'http://www.baidu.com',
+                    jang:'zhiyi'
+                }
+            }
+        })
+
+    new appex().$mount('jang')
+
+</script>
+
+<!--http://jspang.com/2017/03/14/vue2_02/-->
+<!--https://cn.vuejs.org/v2/api/#Vue-extend-->
+</body>
+</html>
