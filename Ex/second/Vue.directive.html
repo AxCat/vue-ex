@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Vue.directive.html</li>
+        </ol>
+    </nav>
+
+    <div id="app">
+        <P class="mt-2" v-jang="jang_color">当前进度：{{counter}}%</P>
+        <button type="button" class="btn btn-primary btn-sm" @click="up_">+ 增加</button>
+        <button type="button" class="btn btn-secondary btn-sm" @click="down_">- 减少</button>
+    </div>
+
+</div>
+<script type="text/javascript">
+
+    Vue.directive('jang',{
+        bind:function (el, binding) {
+            el.style = "color:" + binding.value
+            console.log('1 - bind 被绑定');
+        },
+        inserted:function(){//绑定到节点
+            console.log('2 - inserted 绑定到节点');
+        },
+        update:function(){//组件更新
+            console.log('3 - update 组件更新');
+        },
+        componentUpdated:function(){//组件更新完成
+            console.log('4 - componentUpdated 组件更新完成');
+        },
+        unbind:function(){//解绑
+            console.log('1 - bind 解绑');
+        }
+        
+        }
+    )
+
+    var app = new Vue({
+        el:'#app',
+        data:{
+            counter:0,
+            jang_color:'red'
+        },
+        methods:{
+            up_:function () {
+                this.counter++
+            },
+            down_:function () {
+                this.counter--
+            }
+        }
+    })
+
+
+
+
+</script>
+
+<!--https://cn.vuejs.org/v2/guide/custom-directive.html-->
+<!--https://cn.vuejs.org/v2/api/#Vue-directive-->
+<!--http://jspang.com/2017/03/14/vue2_02/-->
+</body>
+</html>
