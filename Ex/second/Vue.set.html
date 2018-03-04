@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"></li>
+        </ol>
+    </nav>
+
+    <div id="app">
+        <ul>
+            <li v-for="item in lists">{{item.name}}</li>
+        </ul>
+
+        <button onclick="change_arr()">更改</button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    var outdata = {
+        jang:1,
+        lists:[
+            {name:'123',age:123},
+            {name:'999',age:999}
+        ]
+
+    }
+
+    function change_arr() {
+//        for (i=0;i< outdata.lists.length;i++){
+//            outdata.lists[i].name == '123' ? outdata.lists[i].name = '是123' : outdata.lists[i].name = '不是123'
+//        }
+
+
+
+//        Vue.set(outdata.lists[0],'name','ddd')
+
+
+        // 第一个参数是要修改的数据, 第二个值是修改当前数组的哪一个字段,第三个是要修改为什么值
+        // 要修改的数据: 根据索引值你可以拿到数组中的第 `index`条数据: `this.iptDatas[index]`
+        // 前数组的哪一个字段: `showAlert`
+        // 修改为 `true`
+        //        this.$set(this.iptDatas[index], `showAlert`, true)
+        //        或者
+        //        Vue.set(this.iptDatas[index], `showAlert`, true)
+    }
+
+
+    var app = new Vue({
+        el:'#app',
+        data:outdata,
+    })
+
+</script>
+<!--http://jspang.com/2017/03/14/vue2_02/-->
+<!--https://cn.vuejs.org/v2/api/#Vue-set-->
+<!--https://segmentfault.com/q/1010000010352622-->
+<!--https://segmentfault.com/q/1010000012375354/a-1020000012377603-->
+</body>
+</html>
