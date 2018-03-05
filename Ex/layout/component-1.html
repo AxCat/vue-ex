@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"></li>
+        </ol>
+    </nav>
+
+    <div id="app">
+        <jang></jang>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+//    每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始的
+
+    Vue.component('jang',{
+        template:`
+        <p>我是一个P标签</p>
+        `
+    })
+
+
+    var app = new Vue({
+        el:'#app',
+    })
+
+</script>
+</body>
+</html>
