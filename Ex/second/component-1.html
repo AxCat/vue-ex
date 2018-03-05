@@ -30,8 +30,14 @@
 //    每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始的
 
     Vue.component('jang',{
+        data:function () {
+            return {
+                message:'Hello!',
+                counter:0
+            }
+        },
         template:`
-        <p style="color: deepskyblue">我是一个全局注册的P标签</p>
+        <p style="color: deepskyblue" @click="counter++">{{message}} 我是一个全局注册的P标签 {{counter}}</p>
         `
     })
 
