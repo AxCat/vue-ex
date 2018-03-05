@@ -15,12 +15,13 @@
     <nav aria-label="breadcrumb" class="mt-2">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page"></li>
+            <li class="breadcrumb-item active" aria-current="page">Component 初识组件</li>
         </ol>
     </nav>
 
     <div id="app">
         <jang></jang>
+        <my-jang></my-jang>
     </div>
 
 </div>
@@ -30,13 +31,18 @@
 
     Vue.component('jang',{
         template:`
-        <p>我是一个P标签</p>
+        <p style="color: deepskyblue">我是一个全局注册的P标签</p>
         `
     })
 
 
     var app = new Vue({
         el:'#app',
+        components:{
+            'my-jang':{
+                template:`<p style="color:hotpink;">我是一个局部注册的P标签</p>`
+            }
+        }
     })
 
 </script>
