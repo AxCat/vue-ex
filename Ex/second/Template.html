@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--app-css-->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--app-js-->
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav aria-label="breadcrumb" class="mt-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Template 制作模版</li>
+        </ol>
+    </nav>
+
+    <div id="app" >
+
+    </div>
+
+
+    <template id="tem">
+        <p v-jang="color">写在template标签里的模板{{message}}</p>
+    </template>
+
+    <script type="x-template" id="app-script">
+        <p v-jang="w">{{message}}</p>
+    </script>
+
+</div>
+
+<script type="text/javascript">
+
+
+    Vue.directive('jang',{
+            bind:function (el, binding) {
+                el.style = "color:" + binding.value
+                console.log('1 - bind 被绑定');
+            },
+            inserted:function(){//绑定到节点
+                console.log('2 - inserted 绑定到节点');
+            },
+            update:function(){//组件更新
+                console.log('3 - update 组件更新');
+            },
+            componentUpdated:function(){//组件更新完成
+                console.log('4 - componentUpdated 组件更新完成');
+            },
+            unbind:function(){//解绑
+                console.log('1 - bind 解绑');
+            }
+
+        }
+    )
+
+//    每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始的
+    var app  = new Vue({
+        el:'#app',
+        data:{
+          message:'dddc'
+        },
+
+        template:`
+        <h1 style="color:red">直接写在选项里的模板</h1>
+     `
+    })
+
+    var tem = new Vue({
+        el:'#tem',
+        data:{
+            message:'123 msg',
+            color:'green',
+
+        },
+        template:'#tem'
+    })
+
+    var scr = new Vue({
+        el:'#app-script',
+        data:{
+            message:'写在script标签里的模板',
+            w:'#ddd'
+        },
+        template:'#app-script'
+
+    })
+
+
+
+</script>
+</body>
+</html>
